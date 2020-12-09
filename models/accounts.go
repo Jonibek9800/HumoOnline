@@ -34,7 +34,7 @@ type Accounts struct {
 
 
 func AddNewAcount(db *sql.DB, Accounts Accounts) (err error)  {
-	_, err = db.Exec("Insert Into Account(UserId, Number, Name, Amount, Currency) values (($1), ($2), ($3), ($4), ($5))", Accounts.UsersId,Accounts.Name, Accounts.Number, Accounts.Amounte, Accounts.Currency)
+	_, err = db.Exec("Insert Into Accounts(UsersId, Number, Name, Amount, Currency) values (($1), ($2), ($3), ($4), ($5))", Accounts.UsersId,Accounts.Name, Accounts.Number, Accounts.Amounte, Accounts.Currency)
 	if err != nil {
 		fmt.Println(err)
 	}

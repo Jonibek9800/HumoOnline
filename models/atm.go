@@ -12,8 +12,8 @@ type ATMs struct {
 	Name string
 	Status bool
 }
-
-func AddATM(database *sql.DB, address string) (ok bool, err error) {
+//dobavlenie adress bancomata
+func AddAdressATM(database *sql.DB, address string) (ok bool, err error) {
 	_, err = database.Exec(db.AddNewATM, address)
 	if err != nil {
 		log.Println("Can't insert to ATM is not fount", err)

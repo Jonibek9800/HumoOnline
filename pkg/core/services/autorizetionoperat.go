@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 )
-
+// account administratora
 func AdminOperation(Db *sql.DB, user models.Users) {
 	fmt.Println("Добро пожаловат",user.Surname, user.Name)
 	fmt.Println(db.AdminOperationWindow)
@@ -36,7 +36,7 @@ func AdminOperation(Db *sql.DB, user models.Users) {
 }
 
 
-
+//account dlya polzovatelya
 func UserOperation(Db *sql.DB, user models.Users) {
 	fmt.Printf("Здравствуйте  %s, выбери команду...\n",user.Surname, user.Name)
 
@@ -61,7 +61,7 @@ func UserOperation(Db *sql.DB, user models.Users) {
 		fmt.Println("Неверный ввод")
 	}
 }
-
+//avtorizatsiya polzovateley
 func Authorization(Db *sql.DB ) {
 	fmt.Println("Главное меню")
 	fmt.Println("Welcome to system")

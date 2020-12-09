@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"log"
 )
-
+//pokazat summu schota
 func ShowAccountAmount(Db *sql.DB, account models.Users) {
 	rows, err := Db.Query(db.SelAccountByUserId, account.Id)
 	if err != nil {
@@ -49,7 +49,7 @@ func ShowAccountAmount(Db *sql.DB, account models.Users) {
 }
 
 
-
+// chtobi viyti najmite odin
 func UserAdminExit(db *sql.DB, user models.Users) {
 	fmt.Println("\n Нажмите 1 чтобы выйти")
 	var input int
@@ -69,7 +69,7 @@ func UserAdminExit(db *sql.DB, user models.Users) {
 	}
 }
 
-
+// pokazat istoriyu tranzaksii
 func ShowHistoryOfTransaction(Db *sql.DB, user models.Users) {
 	rows, err := Db.Query(db.SelAccountByUserId, user.Id)
 	if err != nil {
@@ -153,12 +153,11 @@ func ShowHistoryOfTransaction(Db *sql.DB, user models.Users) {
 			arr = append(arr, p)
 		}
 		for i := 0; i < len(arr); i++ {
-			fmt.Println("    ОАО ХУМО БАНК   ")
-			fmt.Println("Номер банкомата:",arr[i].ID)
+			fmt.Println(" ХУМО БАНК ")
+			fmt.Println("Номер транзакции",arr[i].ID)
 			fmt.Println("Дата:",arr[i].Date)
-			fmt.Println("Сумма операции:",arr[i].OperationAmount)
-			fmt.Println("Номер вашей карты:",arr[i].AccountNumber)
-			fmt.Println("Номер карты получателя:",arr[i].ReceiverAccountNumber)
+			fmt.Println("Переведенная сумма :",arr[i].OperationAmount)
+			fmt.Println("Перевод на карту ",arr[i].ReceiverAccountNumber)
 			fmt.Println("Доступный лимит:",arr[i].TransactionLimit, "\n")
 		}
 	}

@@ -15,7 +15,7 @@ type HistoryOfTransaction struct {
 	ReceiverAccountNumber int64
 	TransactionLimit int64
 }
-
+//dobavlenie istorii transacsii
 func AddTransaction(Db *sql.DB, myAccount, receiverAccount  Accounts, operationAmount int64) (err error) {
 	var check HistoryOfTransaction
 	data :=time.Now()

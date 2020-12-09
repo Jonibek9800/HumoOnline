@@ -1,0 +1,15 @@
+{
+  "Clients": [
+    {
+      "Id": 1,
+      "Admin": true,
+      "Name": "Jonibek",
+      "Surname": "Mahmudov",
+      "Age": 22,
+      "Gender": "man",
+      "Login": "10071999",
+      "Password": "988777226",
+      "Remove": false
+    }
+  ]
+}
