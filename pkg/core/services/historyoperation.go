@@ -26,23 +26,36 @@ func Translations(Db *sql.DB, user models.Users) {
 	if err != nil {
 		log.Print("Неверный ввод", err)
 	}
+	//add rollback
+	var tx *sql.Tx
+	tx, err = Db.Begin()
+	if err != nil {
+		return
+	}
+	defer func() {
+		if err != nil {
+			_ = tx.Rollback()
+			return
+		}
+		err = tx.Commit()
+	}()
 	var myAccount, receiverAccount models.Accounts
-	row := Db.QueryRow(db.SelAccountAmount, myAccountNumber)
+	row := tx.QueryRow(db.SelAccountAmount, myAccountNumber)
 	err = row.Scan(&myAccount.Amounte)
 	if err != nil {
 		return
 	}
-	row = Db.QueryRow(db.SelAccountNumber, myAccountNumber)
+	row = tx.QueryRow(db.SelAccountNumber, myAccountNumber)
 	err = row.Scan(&myAccount.Number)
 	if err != nil {
 		log.Println(err)
 	}
-	row = Db.QueryRow(db.SelAccountAmount, receiverAccountNumber)
+	row = tx.QueryRow(db.SelAccountAmount, receiverAccountNumber)
 	err = row.Scan(&receiverAccount.Amounte)
 	if err != nil {
 		log.Println(err)
 	}
-	row = Db.QueryRow(db.SelAccountNumber, receiverAccountNumber)
+	row = tx.QueryRow(db.SelAccountNumber, receiverAccountNumber)
 	err = row.Scan(&receiverAccount.Number)
 	if err != nil {
 		log.Println(err)
@@ -52,11 +65,11 @@ func Translations(Db *sql.DB, user models.Users) {
 		UserAdminExit(Db, user)
 		return
 	}
-	_, err = Db.Exec(db.UpdAccountAmountOfGiver, translationAmount, myAccountNumber)
+	_, err = tx.Exec(db.UpdAccountAmountOfGiver, translationAmount, myAccountNumber)
 	if err != nil {
 		log.Println(err)
 	}
-	_, err = Db.Exec(db.UpdAccountAmountOfGainer, translationAmount, receiverAccountNumber)
+	_, err = tx.Exec(db.UpdAccountAmountOfGainer, translationAmount, receiverAccountNumber)
 	if err != nil {
 		log.Println(err)
 	}

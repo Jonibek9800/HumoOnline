@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+    <user>
+        <id>1</id>
+        <name>Jonibek</name>
+        <surname>Mahmudov</surname>
+        <age>22</age>
+        <gender>Male</gender>
+        <admin>true</admin>
+        <login>10071999</login>
+        <password>988777226</password>
+        <remove>false</remove>
+    </user><user>
+        <id>2</id>
+        <name>Zamira</name>
+        <surname>Imomova</surname>
+        <age>21</age>
+        <gender>Female</gender>
+        <admin>false</admin>
+        <login>27121998</login>
+        <password>001777786</password>
+        <remove>false</remove>
+        </user>
+</users>

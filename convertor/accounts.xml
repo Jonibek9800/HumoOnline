@@ -1,0 +1,19 @@
+
+<accounts>
+    <account>
+        <id>1</id>
+        <user_id>1</user_id>
+        <name>CortiMilli</name>
+        <number>3214412398766789</number>
+        <amount>17000</amount>
+        <currency>Smn</currency>
+    </account>
+    <account>
+        <id>2</id>
+        <user_id>2</user_id>
+        <name>Viza</name>
+        <number>1998981927121227</number>
+        <amount>12500</amount>
+        <currency>Usd</currency>
+    </account>
+</accounts>

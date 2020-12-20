@@ -38,3 +38,13 @@ consists of poles of the tasks
 
 ```
 ###### My first md file
+
+***
+In this project you will see an online bank 
+that performs the following actions
+Show balance, money transfer, transaction history, 
+ATM addresses, adding ATMs, etc.
+***
+****
+and there is also a function to add a file to the archive
+****
